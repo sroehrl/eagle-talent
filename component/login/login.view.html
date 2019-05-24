@@ -1,0 +1,32 @@
+<div class="container" style="padding-bottom: 20px">
+    <h1>login</h1>
+
+    <form name="loginFrom">
+        <login logged-in="{{isLoggedIn}}"></login>
+    </form>
+    <login is-template>
+        <div data-hide="isLoggedIn">
+            <p>please use your talon-login</p>
+            <div class="form-group">
+                <label class="label">Username</label>
+                <input type="text" class="form-control" data-bind="username">
+
+            </div>
+            <div class="form-group">
+                <label class="label">Password</label>
+                <input type="password" class="form-control" data-bind="password">
+            </div>
+            <div>
+                <button class="btn btn-primary" data-click="doLogin">Login</button>
+                <div class="alert alert-danger" data-show="showError">
+                    Credentials not valid
+                </div>
+            </div>
+        </div>
+        <div data-show="isLoggedIn">
+            <p>You are logged in.</p>
+            <button class="btn btn-warning" data-click="logout">Logout</button>
+        </div>
+    </login>
+</div>
+

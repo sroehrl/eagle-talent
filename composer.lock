@@ -1,0 +1,273 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "38e406981673f826af37a8757a5413dd",
+    "packages": [
+        {
+            "name": "mnsami/composer-custom-directory-installer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mnsami/composer-custom-directory-installer.git",
+                "reference": "1ccaf2da421dd9f6bcec4631c38e69e67677125f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/1ccaf2da421dd9f6bcec4631c38e69e67677125f",
+                "reference": "1ccaf2da421dd9f6bcec4631c38e69e67677125f",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=5.3"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": [
+                    "Composer\\CustomDirectoryInstaller\\LibraryPlugin",
+                    "Composer\\CustomDirectoryInstaller\\PearPlugin",
+                    "Composer\\CustomDirectoryInstaller\\PluginPlugin"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\CustomDirectoryInstaller": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mina Nabil Sami",
+                    "email": "mina.nsami@gmail.com"
+                }
+            ],
+            "description": "A composer plugin, to help install packages of different types in custom paths.",
+            "keywords": [
+                "composer",
+                "composer-installer",
+                "composer-plugin"
+            ],
+            "time": "2017-08-14T19:50:19+00:00"
+        },
+        {
+            "name": "neoan3-apps/curl",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sroehrl/neoan3-curl.git",
+                "reference": "40b9349c39ae97e7f31079495367673f037f52fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sroehrl/neoan3-curl/zipball/40b9349c39ae97e7f31079495367673f037f52fb",
+                "reference": "40b9349c39ae97e7f31079495367673f037f52fb",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neoan3\\Apps\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "neoan3 curl class",
+            "time": "2019-05-21T21:42:51+00:00"
+        },
+        {
+            "name": "neoan3-apps/db",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sroehrl/neoan3-db.git",
+                "reference": "e66a7ec3bf958ffc0d59d32415f3d14a296c15cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sroehrl/neoan3-db/zipball/e66a7ec3bf958ffc0d59d32415f3d14a296c15cd",
+                "reference": "e66a7ec3bf958ffc0d59d32415f3d14a296c15cd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-mysqli": "*",
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neoan3\\Apps\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stefan Roehrl",
+                    "homepage": "http://neoan.us"
+                }
+            ],
+            "description": "neoan3 mysqli class",
+            "time": "2019-04-29T22:32:46+00:00"
+        },
+        {
+            "name": "neoan3-apps/js",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sroehrl/neoan3-js.git",
+                "reference": "eae4406ccf32ab745925749093648bbdb11d1484"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sroehrl/neoan3-js/zipball/eae4406ccf32ab745925749093648bbdb11d1484",
+                "reference": "eae4406ccf32ab745925749093648bbdb11d1484",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neoan3\\Apps\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "neoan3 php-js class",
+            "time": "2019-05-21T01:55:01+00:00"
+        },
+        {
+            "name": "neoan3-apps/ops",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sroehrl/neoan3-ops.git",
+                "reference": "8d8122899e595cfd87e5336333872a1449dc9d0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sroehrl/neoan3-ops/zipball/8d8122899e595cfd87e5336333872a1449dc9d0f",
+                "reference": "8d8122899e595cfd87e5336333872a1449dc9d0f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-openssl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neoan3\\Apps\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "neoan3 common string operations helper class",
+            "time": "2019-04-30T23:54:34+00:00"
+        },
+        {
+            "name": "neoan3-apps/session",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sroehrl/neoan3-session.git",
+                "reference": "673a77c1e468cc76c6659777c4e88b7230fede34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sroehrl/neoan3-session/zipball/673a77c1e468cc76c6659777c4e88b7230fede34",
+                "reference": "673a77c1e468cc76c6659777c4e88b7230fede34",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "neoan3-apps/db": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neoan3\\Apps\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "neoan3 session class",
+            "time": "2018-12-09T17:19:54+00:00"
+        },
+        {
+            "name": "rakibtg/sleekdb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rakibtg/SleekDB.git",
+                "reference": "b998db0ab768aa74db7a7249ac24fc030bed6812"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rakibtg/SleekDB/zipball/b998db0ab768aa74db7a7249ac24fc030bed6812",
+                "reference": "b998db0ab768aa74db7a7249ac24fc030bed6812",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SleekDB\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "rakibtg",
+                    "email": "rakibtg@gmail.com"
+                }
+            ],
+            "description": "SleekDB - A 30Kb NoSQL Database made using PHP",
+            "keywords": [
+                "SleekDB",
+                "api",
+                "database",
+                "flatfile",
+                "framework",
+                "micro",
+                "nosql",
+                "php",
+                "rest"
+            ],
+            "time": "2019-04-04T18:32:37+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "neoan3-apps/ops": 20,
+        "neoan3-apps/db": 20,
+        "neoan3-apps/session": 20,
+        "neoan3-apps/js": 20,
+        "rakibtg/sleekdb": 20,
+        "neoan3-apps/curl": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^5.6 || ^7.0",
+        "ext-json": "*"
+    },
+    "platform-dev": []
+}

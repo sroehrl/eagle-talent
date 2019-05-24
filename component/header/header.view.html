@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{base}}"><img src="http://eagleproductivity.com/images/eagle.png?crc=3918125994" alt="eagle"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{base}}talent/voice/">Voices</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{base}}talent/video/">Video Talents</a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <div style="padding:3px;">
+                <select id="lang-select" class="custom-select" name="language" onchange="changeSession()">
+                    {{languageOptions}}
+                </select>
+                <select id="gender-select" class="custom-select" name="gender" onchange="changeSession()">
+                    {{genderOptions}}
+                </select>
+            </div>
+
+        </form>
+    </div>
+</nav>
+

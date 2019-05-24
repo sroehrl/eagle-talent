@@ -1,0 +1,36 @@
+*   Trying 216.194.166.210...
+* TCP_NODELAY set
+* Connected to learntodomore.com (216.194.166.210) port 443 (#0)
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: A:\localhost\apache\bin\curl-ca-bundle.crt
+  CApath: none
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: OU=Domain Control Validated; OU=COMODO SSL; CN=learntodomore.com
+*  start date: Apr 18 00:00:00 2019 GMT
+*  expire date: May  3 23:59:59 2020 GMT
+*  subjectAltName: host "learntodomore.com" matched cert's "learntodomore.com"
+*  issuer: C=GB; ST=Greater Manchester; L=Salford; O=Sectigo Limited; CN=Sectigo RSA Domain Validation Secure Server CA
+*  SSL certificate verify ok.
+> POST /apps/_neoan/apps/api.app.php HTTP/1.1
+Host: learntodomore.com
+Accept: */*
+Content-Type: application/json
+Content-Length: 125
+
+* upload completely sent off: 125 out of 125 bytes
+< HTTP/1.1 200 OK
+< Date: Wed, 22 May 2019 21:50:30 GMT
+< Server: Apache
+< Expires: Thu, 19 Nov 1981 08:52:00 GMT
+< Cache-Control: no-store, no-cache, must-revalidate
+< Pragma: no-cache
+* Added cookie PHPSESSID="79me636btftkr10ngpcq2hg047" for domain learntodomore.com, path /, expire 0
+< Set-Cookie: PHPSESSID=79me636btftkr10ngpcq2hg047; path=/
+< Transfer-Encoding: chunked
+< Content-Type: application/json
+< 
+* Connection #0 to host learntodomore.com left intact
+* WARNING: failed to save cookies in A:\localhost\htdocs\neoan3via\_neoan/apps/plugins/neoanCurl/cookie.txt
