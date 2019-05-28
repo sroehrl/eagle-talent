@@ -9,7 +9,7 @@ use Neoan3\Apps\Js;
 use SleekDB\SleekDB;
 
 class Talent extends Unicore {
-    private $genderOptions = '';
+    private $genderOptions   = '';
     private $languageOptions = '';
 
     function __construct() {
@@ -19,7 +19,9 @@ class Talent extends Unicore {
     function init() {
         $this->uni('demo')
              ->addHead('title', 'Talent Gallery')
+             ->callback($this, 'hideShow')
              ->includeElement('services')
+             ->includeElement('neoan-accents')
              ->includeElement('talent')
              ->callback($this, 'navigation')
              ->hook(
@@ -30,12 +32,21 @@ class Talent extends Unicore {
              ->output();
     }
 
+    function hideShow($uni) {
+        $uni->js .= Js::_()
+                      ->select('.container')
+                      ->then('container.style.visibility="hidden";{{next}}')
+                      ->nfn('showAll')
+                      ->then('setTimeout(()=>{container.style.visibility="visible"},800)')
+                      ->next()->then('showAll()')
+                      ->out();
+    }
+
     /**
      *
      * @throws \Exception
      */
     function navigation($context) {
-        SleekDB::store('talents', path . '/component/talent');
         $this->genderOptions = $this->genders();
         $this->languageOptions = $this->languages();
 

@@ -25,10 +25,10 @@ neoan.component('admin-settings',{
         })
     },
     saveNewLanguage(){
-        this.adminSettingsPostLanguage({name:this.data.newLanguage});
+        this.postLanguage({name:this.data.newLanguage});
     },
     saveNewAccent(){
-        this.adminSettingsPostLanguage({
+        this.postLanguage({
             languageId:this.data.availableLanguages[this.args]._id,
             name:this.data.newAccent
         });

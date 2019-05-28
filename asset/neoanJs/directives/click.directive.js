@@ -43,7 +43,8 @@ neoan.directive('click',{
 
             let call = '';
             if (rawCall.length < 2) {
-                call = helper.kebabToCamel(context.name + '-' + rawCall.join('-'));
+                call = helper.kebabToCamel(rawCall.join('-'));
+                // call = helper.kebabToCamel(context.name + '-' + rawCall.join('-'));
                 if (typeof context[call] !== 'undefined') {
                     let handler = (ev) => {
                         if (ev.target.dataset.id === ele.dataset.id || ev.target.parentNode.dataset.id === ele.dataset.id) {

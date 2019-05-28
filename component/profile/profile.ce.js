@@ -17,7 +17,7 @@ neoan.component('profile', {
         saved:false
     },
     save(){
-        this.profileMatchAccents('up');
+        this.matchAccents('up');
         let data = this.data;
         neoan.services.api.post('profile',this.data).then((res)=>{
             data._id = res._id;
@@ -60,11 +60,11 @@ neoan.component('profile', {
     updated() {
 
         let picture = this.element.querySelector('input[type="file"]');
-        if ('files' in picture && picture.files.length > 0 && this.data.picture === false) {
+        if ('files' in picture && picture.files.length > 0 ) {
             if(picture.files[0].size > 126976){
                 alert('Max. file size is 124KB')
             } else {
-                this.profilePicture(picture.files[0]);
+                this.picture(picture.files[0]);
             }
         }
         this.data.languages.forEach((lang)=>{
@@ -72,7 +72,7 @@ neoan.component('profile', {
                 this.data.availableAccents = lang.accents;
             }
         });
-        this.profileMatchAccents('down');
+        this.matchAccents('down');
 
     },
     matchAccents(direction){
@@ -97,6 +97,10 @@ neoan.component('profile', {
     },
     forcer(){
          this.data.force = !this.data.force;
+    },
+    resetPicture(){
+        let picture = document.querySelector('input[type="file"]');
+        picture.value = null;
     },
     picture(file) {
         let reader = new FileReader();

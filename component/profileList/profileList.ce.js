@@ -25,6 +25,7 @@ neoan.component('profile-list', {
             Object.keys(obj).forEach((key) => {
                 entity.data[key] = obj[key];
             });
+            entity.resetPicture();
         })
     }
 });

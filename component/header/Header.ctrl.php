@@ -9,26 +9,29 @@ use Neoan3\Apps\Session;
 class Header extends Unicore {
     function __construct() {
         new Session();
-//        var_dump($_SESSION);
         if(!isset($_SESSION['language'])) {
             Session::add_session(
                 [
                     'language' => 'english',
-                ]
-            );
-        }
-        if(!isset($_SESSION['gender'])) {
-            Session::add_session(
-                [
                     'gender' => 'female',
                 ]
             );
         }
+
     }
 
     function postHeader($obj){
-
-        $_SESSION['language'] = $obj['language'];
-        $_SESSION['gender'] = $obj['gender'];
+        if(isset($obj['accents'])){
+            $_SESSION['accents'] = $obj['accents'];
+        }
+        if(isset($obj['language'])){
+            $_SESSION['language'] = $obj['language'];
+        }
+        if(isset($obj['gender'])){
+            $_SESSION['gender'] = $obj['gender'];
+        }
+    }
+    function getHeader(){
+        return $_SESSION['accents'];
     }
 }

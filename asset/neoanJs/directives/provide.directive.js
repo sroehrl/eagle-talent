@@ -9,8 +9,6 @@ neoan.directive('provide', {
                 return e.id === ele.id
             });
             if (candidate.length > 0) {
-                console.log(ele.dataset.provide.replace(/({{)|(}})/g,''));
-                console.log(context.data);
                 candidate[0].data._provided = helper.deepFlatten(ele.dataset.provide.replace(/({{)|(}})/g,''), context.data)
             }
         })

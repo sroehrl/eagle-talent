@@ -22,11 +22,12 @@ export default function Component(name, component = {}) {
         },
     };
     Object.keys(component).forEach((given)=>{
-        if(blocked.includes(given)){
+        configuration[given] = component[given];
+        /*if(blocked.includes(given)){
             configuration[given] = component[given];
         } else {
             configuration[helper.kebabToCamel(name+'-'+given)] = component[given];
-        }
+        }*/
 
     });
     /*TODO: add deeper dynamic objects*/
@@ -110,11 +111,7 @@ export default function Component(name, component = {}) {
         stateArrays[regId] = stateArray;
         return ['new',regId];
     };
-    if (component.template) {
-        elements.forEach((e)=>{
-            slotting(e,component.template,e.id);
-        });
-    }
+
 
     if (elements) {
         elements.forEach((element) => {
@@ -159,7 +156,11 @@ export default function Component(name, component = {}) {
             }
         });
     }
-
+    if (component.template) {
+        elements.forEach((e)=>{
+            slotting(e,component.template,e.id);
+        });
+    }
 
     const fireWhenDone = () => {
         rendering();
