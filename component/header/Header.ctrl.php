@@ -8,6 +8,8 @@ use Neoan3\Apps\Session;
 
 class Header extends Unicore {
     function __construct() {
+        new Session();
+//        var_dump($_SESSION);
         if(!isset($_SESSION['language'])) {
             Session::add_session(
                 [
@@ -25,6 +27,7 @@ class Header extends Unicore {
     }
 
     function postHeader($obj){
+
         $_SESSION['language'] = $obj['language'];
         $_SESSION['gender'] = $obj['gender'];
     }
