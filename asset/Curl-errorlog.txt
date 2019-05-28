@@ -22,13 +22,13 @@ Content-Length: 125
 
 * upload completely sent off: 125 out of 125 bytes
 < HTTP/1.1 200 OK
-< Date: Wed, 22 May 2019 21:50:30 GMT
+< Date: Mon, 27 May 2019 23:46:02 GMT
 < Server: Apache
 < Expires: Thu, 19 Nov 1981 08:52:00 GMT
 < Cache-Control: no-store, no-cache, must-revalidate
 < Pragma: no-cache
-* Added cookie PHPSESSID="79me636btftkr10ngpcq2hg047" for domain learntodomore.com, path /, expire 0
-< Set-Cookie: PHPSESSID=79me636btftkr10ngpcq2hg047; path=/
+* Added cookie PHPSESSID="i6tr1d2adf0oiedd6ml37qptm3" for domain learntodomore.com, path /, expire 0
+< Set-Cookie: PHPSESSID=i6tr1d2adf0oiedd6ml37qptm3; path=/
 < Transfer-Encoding: chunked
 < Content-Type: application/json
 < 

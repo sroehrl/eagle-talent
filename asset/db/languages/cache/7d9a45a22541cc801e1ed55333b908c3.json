@@ -1,1 +1,1 @@
-[{"name":"spanish","_id":1,"accents":[{"name":"Oxford"}]},{"name":"english","_id":2,"accents":[{"name":"New Stefanlandish"}]},{"name":"German","accents":[],"_id":3}]
+[{"name":"spanish","_id":1,"accents":[{"name":"Oxford"}]},{"name":"english","_id":2,"accents":[{"name":"Oxford"}]},{"name":"German","accents":[{"name":"High German"},{"name":"Bavarian"}],"_id":3}]

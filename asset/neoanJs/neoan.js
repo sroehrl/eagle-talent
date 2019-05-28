@@ -24,6 +24,16 @@ const Neoan =  function() {
         this.cycle();
         return this;
     };
+    this.useNeoanDirectives = (argument)=>{
+        if(Array.isArray(argument)){
+            argument.forEach((directive)=>{
+                import('./directives/'+directive+'.directive.js');
+            })
+        } else {
+            import('./directives/'+argument+'.directive.js');
+        }
+
+    };
     this.cycle = function(){
         Object.keys(this.components).forEach((comp)=>{
             let rerender = false, tagName = helper.camelToKebab(comp);

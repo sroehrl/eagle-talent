@@ -7,15 +7,16 @@ use Neoan3\Apps\Session;
 use Neoan3\Core\Unicore;
 
 class Admin extends Unicore {
-    function __construct() {
-        new Session();
-    }
 
-    function init() {
+    function restrict(){
         if(!Session::is_logged_in()) {
             redirect('login');
+            exit();
         }
-        $this->uni('demo')
+    }
+    function init() {
+
+        $this->uni('demo')->callback($this,'restrict')
              ->includeElement('admin')
              ->includeElement('admin-settings')
              ->includeElement('services')

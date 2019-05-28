@@ -1,67 +1,30 @@
 import neoan from '{{base}}/asset/neoanJs/neoan.js';
 
-const template =`
-<div class="card">
-        <img data-show="picture" class="card-img-top" data-src="picture" alt="profile picture">
-        <div class="card-body">
-
-            <div class="form-group custom-control-inline">
-                <input type="file" class="form-control-file" >
-                <button class="btn" data-click="forcer"><i class="fas fa-sync"></i></button>
-            </div>
-            <div class="form-group">
-                <label>Name</label>
-                <input class="form-control" type="text" data-bind="name">
-            </div>
-            <div class="form-group">
-                <label>Gender</label>
-                <select class="form-control" name="type" data-bind="gender">
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Type</label>
-                <select class="form-control" name="type" data-bind="type">
-                    <option value="voice">Voice</option>
-                    <option value="video">Video</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>File location <i class="fas fa-info-circle pointer" onclick="showToast()"></i></label>
-                <input type="url" data-bind="fileLocation" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Language</label>
-                <select class="form-control" name="type" data-bind="language" data-for="languages">
-                    <option>{{language.name}}</option>
-                </select>
-            </div>
-            <button class="btn btn-success" data-click="save">
-                <span data-show="_id">update</span><span data-hide="_id">save new profile</span>
-            </button>
-            <button class="btn btn-danger" data-show="_id" data-click="delete">delete</button>
-        </div>
-
-    </div>
-
-`;
+const template =document.querySelector('#profile').innerHTML;
 
 neoan.component('profile', {
     template: template,
     data: {
         languages: [],
         language: 'english',
+        accents:[],
+        spokenAccents:[],
         type: 'voice',
         gender: 'female',
         name:'',
         picture:false,
-        force:false
+        force:false,
+        saved:false
     },
     save(){
+        this.profileMatchAccents('up');
         let data = this.data;
         neoan.services.api.post('profile',this.data).then((res)=>{
             data._id = res._id;
+            this.data.saved = true;
+            setTimeout(()=>{
+                this.data.saved = false
+            },1500);
             neoan.components.profileList.forEach((entity)=>{
                 entity.loaded();
             })
@@ -83,16 +46,19 @@ neoan.component('profile', {
 
     },
     loaded() {
-        this.rendering();
+        // this.rendering();
         neoan.services.api.get('languages').then((data)=>{
             this.data.languages = data;
         });
         this.pictureInput = this.element.querySelector('input[type="file"]');
         this.pictureInput.addEventListener('change',(ev)=>{
             this.updated();
-        })
+        });
+
+
     },
     updated() {
+
         let picture = this.element.querySelector('input[type="file"]');
         if ('files' in picture && picture.files.length > 0 && this.data.picture === false) {
             if(picture.files[0].size > 126976){
@@ -100,8 +66,34 @@ neoan.component('profile', {
             } else {
                 this.profilePicture(picture.files[0]);
             }
-
         }
+        this.data.languages.forEach((lang)=>{
+            if(lang.name === this.data.language){
+                this.data.availableAccents = lang.accents;
+            }
+        });
+        this.profileMatchAccents('down');
+
+    },
+    matchAccents(direction){
+        let accents = this.element.querySelectorAll('.accents');
+        let spoken = [];
+        accents.forEach((accentNode,i)=>{
+            if(direction === 'down'){
+                accentNode.checked = this.data.accents.filter((acc)=>{
+                    return acc.name === this.data.availableAccents[i].name
+                }).length>0
+            } else {
+                if(accentNode.checked){
+                    spoken.push(this.data.availableAccents[i])
+                }
+            }
+        });
+        if(direction === 'up'){
+            this.data.spokenAccents = spoken;
+        }
+
+
     },
     forcer(){
          this.data.force = !this.data.force;

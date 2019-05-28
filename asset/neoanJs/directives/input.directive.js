@@ -3,7 +3,7 @@ import neoan from '../neoan.js';
 neoan.directive('input', {
     run(element, scope, value, context) {
         this.elementIterator(element, '[data-bind="' + scope + '"]').forEach((ele) => {
-            if (ele.nodeName === 'INPUT' || ele.nodeName === 'TEXTAREA' || ele.nodeName === 'SELECT') {
+            if (ele.nodeName === 'INPUT' || ele.nodeName === 'TEXTAREA' || ele.nodeName === 'SELECT' ) {
                 if (value.trim() !== '') {
                     ele.value = value;
                 }

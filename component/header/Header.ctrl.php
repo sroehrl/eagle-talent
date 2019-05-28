@@ -8,7 +8,6 @@ use Neoan3\Apps\Session;
 
 class Header extends Unicore {
     function __construct() {
-        new Session();
         if(!isset($_SESSION['language'])) {
             Session::add_session(
                 [

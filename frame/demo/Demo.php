@@ -7,12 +7,15 @@
  */
 
 namespace Neoan3\Frame;
+use Neoan3\Apps\Session;
 use Neoan3\Core\Serve;
 
 class Demo extends Serve{
     function __construct() {
+        new Session();
         parent::__construct();
         define('db_name','talent');
+
     }
 
 

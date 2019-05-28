@@ -11,7 +11,11 @@ use SleekDB\SleekDB;
 class Profile extends Unicore {
     function postProfile($obj){
 
-        $clean = Ops::extrude(['language','type','picture','name','gender'],$obj);
+        $clean = Ops::extrude(['language','type','picture','name','gender','fileLocation'],$obj);
+        $clean['accents'] = [];
+        foreach($obj['spokenAccents'] as $spokenAccent){
+            $clean['accents'][] = ['name'=>$spokenAccent['name']];
+        }
         $storeName = $obj['type'];
         $store = SleekDB::store($storeName,path.'/asset/db');
         if(!isset($obj['_id'])){

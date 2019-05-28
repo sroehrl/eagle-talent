@@ -12,7 +12,6 @@ neoan.component('login',{
     loaded(){
         let attr = this.element.getAttribute('logged-in');
         this.data.isLoggedIn = attr === '1';
-        console.log(this.data);
     },
     logout(){
         fetch('{{base}}/api.v1/logout').then((header)=>{
@@ -31,7 +30,8 @@ neoan.component('login',{
         }).then((res)=>{
             this.data.showError = res.error;
             if(!res.error){
-                window.location.href = '{{base}}/admin/';
+                console.log('{{base}}');
+                window.location.href = '{{base}}admin/';
             }
         })
     }

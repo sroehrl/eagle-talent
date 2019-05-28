@@ -14,22 +14,23 @@ class Login extends Unicore {
 
     function init() {
         $this->uni('demo')
-             ->includeJs(
-                 path . '/component/login/login.ce.js', ['base' => base], 'module'
-             )
-             ->hook('main', 'login',['isLoggedIn'=>Session::is_logged_in()])
+             ->includeElement('login')
+             ->hook('main', 'login', ['isLoggedIn' => Session::is_logged_in()])
              ->output();
     }
-    function postLogin($obj){
-        $result = Curl::post('https://learntodomore.com/apps/_neoan/apps/api.app.php',[
-            'c'=>'start',
-            'config'=>'concr',
-            'f'=>'login',
-            'd'=>$obj
-        ]);
-        if(!$result['error']){
+
+    function postLogin($obj) {
+        $result = Curl::post(
+            'https://learntodomore.com/apps/_neoan/apps/api.app.php', [
+            'c'      => 'start',
+            'config' => 'concr',
+            'f'      => 'login',
+            'd'      => $obj
+        ]
+        );
+        if(!$result['error']) {
             Session::login($result['user']['id']);
-            Session::add_session(['user'=>$result['user']]);
+            Session::add_session(['user' => $result['user']]);
         }
         return $result;
     }

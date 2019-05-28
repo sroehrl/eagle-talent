@@ -19,13 +19,16 @@ neoan.component('admin-settings',{
         neoan.services.api.post('languages',body).then((data)=>{
             this.data.newLanguage = '';
             this.data.availableLanguages = data;
+            neoan.components.profile.forEach((entity)=>{
+                entity.loaded();
+            })
         })
     },
     saveNewLanguage(){
-        this.postLanguage({name:this.data.newLanguage});
+        this.adminSettingsPostLanguage({name:this.data.newLanguage});
     },
     saveNewAccent(){
-        this.postLanguage({
+        this.adminSettingsPostLanguage({
             languageId:this.data.availableLanguages[this.args]._id,
             name:this.data.newAccent
         });
@@ -35,6 +38,9 @@ neoan.component('admin-settings',{
         body.type = 'accent';
         neoan.services.api.delete('languages',body).then((data)=>{
             this.data.availableLanguages = data;
+            neoan.components.profile.forEach((entity)=>{
+                entity.loaded();
+            })
         });
     },
     open(){

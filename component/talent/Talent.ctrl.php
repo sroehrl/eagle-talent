@@ -13,7 +13,6 @@ class Talent extends Unicore {
     private $languageOptions = '';
 
     function __construct() {
-        new Session();
         new Header();
     }
 
