@@ -13,9 +13,9 @@ You will require a talon-account to log in at
 
 Outstanding to-dos & problems can be found here under issues.
 
-### Security
+### IP
 
-This is a public repository. Keep that in mind when creating issues or pull-requests.
+This is a public repository. Keep that in mind when creating issues or pull-requests. When in doubt, use company-internal channels.
 
 ## Help developing?
 
