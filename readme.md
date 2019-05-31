@@ -11,8 +11,12 @@ You will require a talon-account to log in at
 
 ## Collaborators:
 
-Outstanding todos & problems can be found here under issues.
+Outstanding to-dos & problems can be found here under issues.
 
 ### Security
 
 This is a public repository. Keep that in mind when creating issues or pull-requests.
+
+## Help developing?
+
+This site is built using [neoan3](https://www.npmjs.com/package/neoan3-cli), feel free to dig in
