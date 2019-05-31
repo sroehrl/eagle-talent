@@ -13,7 +13,7 @@ class Header extends Unicore {
         if(!isset($_SESSION['language'])) {
             Session::add_session(
                 [
-                    'language' => 'english',
+                    'language' => 'English',
                     'gender' => 'female',
                 ]
             );
