@@ -1,15 +1,5 @@
 
 
-.container{
-    padding-bottom:25px;
-}
-h1{
-    font-family: "Lucida Console", Monaco, monospace;
-    color: #7EC52C;
-}
-p {
-    color: rgba(6, 12, 6, 0.7);
-}
 .pointer{
     cursor: pointer;
 }

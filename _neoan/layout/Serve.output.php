@@ -86,7 +86,7 @@ class Serve {
      */
     function __construct(){
         $this->html = '';
-
+        $this->secureCustomElementDefine();
         $this->initFrame();
         $this->startHtml();
 
@@ -162,7 +162,7 @@ class Serve {
      */
     function addStylesheet($style){
         if(strpos($style,base)!==false){
-            $file = file_get_contents($style);
+            $file = file_get_contents(path.'/'.substr($style,strlen(base)));
             $this->style .= Ops::embrace($file,['base'=>base]);
         } else {
             $this->importedStyles  .= ' @import url(' . $style . '); ';
@@ -233,7 +233,7 @@ class Serve {
                         isset($include['data'])?$data = $include['data']:$data=[];
                         isset($include['type'])?$jsType = $include['type']:$jsType='text/javascript';
                         $this->includeJs($include['src'],$data,$jsType);
-                        break;
+                       break;
                 }
             }
         }
@@ -329,6 +329,13 @@ class Serve {
     }
 
     /**
+     * Prevents redefining custom elements
+     */
+    private function secureCustomElementDefine(){
+        $this->js .= file_get_contents(__DIR__.'/protectors.js');
+    }
+
+    /**
      * @param $element
      * @param array $params
      * @return $this
@@ -339,11 +346,18 @@ class Serve {
         $path = path.'/component/'.$pName.'/'.$pName.'.ce.';
         if(file_exists($path.$this->viewExt)){
             $this->footer .= '<template id="'.$element.'">'.
-                             $this->fileContent($path.$this->viewExt,$params).
-                             '</template>';
+                $this->fileContent($path.$this->viewExt,$params).
+                '</template>';
         }
         if(file_exists($path.'js')){
-            $this->modules .= '<script type="module" src="'.base.'/serve.file/'.$pName.'/ce"></script>';
+            $getString = '';
+            foreach($params as $key =>$value){
+                $getString .= (strlen($getString)>0?'&':'').$key .'='.$value;
+            }
+            if(strlen($getString)>0){
+                $getString = '?'.$getString;
+            }
+            $this->modules .= '<script type="module" src="'.base.'/serve.file/'.$pName.'/ce'.$getString.'"></script>';
         }
 
         return $this;

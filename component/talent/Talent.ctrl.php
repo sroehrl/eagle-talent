@@ -3,6 +3,7 @@
 
 namespace Neoan3\Components;
 
+use Neoan3\Core\Serve;
 use Neoan3\Core\Unicore;
 use Neoan3\Apps\Session;
 use Neoan3\Apps\Js;
@@ -20,16 +21,31 @@ class Talent extends Unicore {
         $this->uni('demo')
              ->addHead('title', 'Talent Gallery')
              ->callback($this, 'hideShow')
-             ->includeElement('services')
+            /* ->includeElement('services')
              ->includeElement('neoan-accents')
-             ->includeElement('talent')
+             ->includeElement('talent')*/
              ->callback($this, 'navigation')
+             ->callback($this, 'chooseView')
              ->hook(
                  'header', 'header',
                  ['genderOptions' => $this->genderOptions, 'languageOptions' => $this->languageOptions]
-             )
-             ->hook('main', 'talent', ['language' => $_SESSION['language'], 'gender' => $_SESSION['gender']])
+             )//             ->hook('main', 'talent', ['language' => $_SESSION['language'], 'gender' => $_SESSION['gender']])
              ->output();
+    }
+
+    /**
+     * @param Serve $uni
+     */
+    function chooseView($uni) {
+        $view = 'talent';
+        if(sub(1)) {
+            $view = 'view' . ucfirst(sub(1)) . 's';
+            $uni->includeElement('services')
+                ->includeElement('neoan-accents')
+                ->includeElement('talent',['contentType'=>sub(1).'s']);
+        }
+
+        $uni->hook('main', $view, ['language' => $_SESSION['language'], 'gender' => $_SESSION['gender']]);
     }
 
     function hideShow($uni) {
@@ -37,10 +53,12 @@ class Talent extends Unicore {
                       ->select('.container')
                       ->then('container.style.visibility="hidden";{{next}}')
                       ->nfn('showAll')
-                      ->then('setTimeout(()=>{container.style.visibility="visible"},800)')
-                      ->next()->then('showAll()')
+                      ->then('setTimeout(()=>{container.style.visibility="visible"},0)')
+                      ->next()
+                      ->then('showAll()')
                       ->out();
     }
+
 
     /**
      *

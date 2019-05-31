@@ -1,20 +1,37 @@
 <div class="card">
     <img alt="Profile image" data-src="_provided.picture" class="card-img-top">
-    <div class="card-body">
-        <div class="card-title">
-            <h2>{{_provided.name}}</h2>
-            <p><br>
-                You'll find {{_provided.name}}'s audio sample below.&nbsp;Click the microphone icon to listen right now.
-            </p>
-        </div>
-        <div class="card-link" align="center">
-            <div class="animated bounce">
-                <div class="animated bounce " style="color:#F5A102" data-click="play">
-                    <i class="fas fa-microphone-alt fa-2x" data-show="ready"></i>
-                    <i class="fas fa-pause fa-2x" data-hide="ready"></i>
-                </div>
+
+    <div class="card-footer" style="background: #F5A102;color:whitesmoke">
+        <div class="row" >
+            <div class="col">
+                <h3>{{_provided.name}}</h3>
+            </div>
+            <div class="animated bounce pointer mr-3"  data-click="play">
+                <i class="fas fa-play fa-2x" data-show="ready"></i>
+                <i class="fas fa-pause fa-2x" data-hide="ready"></i>
             </div>
         </div>
     </div>
+</div>
 
+<!--MODAL-->
+<div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >{{_provided.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe data-src="videoStream" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,6 +1,8 @@
 <?php
 require_once(dirname(__FILE__) . '/_includes.php');
 
+use Neoan3\Core\RouteException;
+
 $route = new Route('api');
 $api = new Api();
 $api->apiRoute();
@@ -65,8 +67,6 @@ class Api {
     function requestHeader(){
         $endpointParts = explode('/',$_SERVER['REQUEST_URI']);
         $targetParts = explode('?',end($endpointParts));
-
-        $this->header = array_merge($this->header,apache_request_headers());
         $this->header['target'] = $targetParts[0];
     }
 
@@ -90,12 +90,18 @@ class Api {
         $this->checkErrors($class,$function);
         $c = new $class(false);
         $this->setResponseHeader(200);
+        try{
+            if(!empty($this->stream)){
+                $responseBody = $c->$function($this->stream);
+            } else {
+                $responseBody = $c->$function();
+            }
 
-        if (!empty($this->stream)) {
-            $this->exiting($c->$function($this->stream));
-        } else {
-            $this->exiting($c->$function());
+        } catch (RouteException $e){
+            $this->setResponseHeader($e->getCode());
+            $responseBody = ['error'=>$e->getMessage()];
         }
+        $this->exiting($responseBody);
 
     }
 

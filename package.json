@@ -22,11 +22,8 @@
   },
   "homepage": "https://github.com/sroehrl/neoan3#readme",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.2",
     "@polymer/iron-pages": "^3.0.1",
     "@polymer/paper-tabs": "^3.0.1",
-    "ace-builds": "^1.4.2",
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1"
+    "ace-builds": "^1.4.2"
   }
 }

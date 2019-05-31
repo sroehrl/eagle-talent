@@ -1,11 +1,10 @@
-
-<div class="container mt-3">
-
-    <neoan-accents language="{{language}}" ></neoan-accents>
-
-    <neoan-voices  language="{{language}}" gender="{{gender}}"></neoan-voices>
+<div class="container">
+    <div class="row justify-content-center mt-3 mb-3">
+        <img src="http://eagleproductivity.com/images/eagle.png"  alt="eagle logo">
+        <h2 class="text-uppercase" style="padding-top: 7px">Talent Gallery</h2>
+    </div>
+    <div class="text-center">
+        <a href="{{base}}talent/voice/" class="btn btn-outline-primary">Voice Talents</a>
+        <a href="{{base}}talent/video/" class="btn btn-outline-primary">Video Talents</a>
+    </div>
 </div>
-<!-- SLOT for introduction text-->
-<neoan-accents is-slot="intro">
-    <p>Some introduction text</p>
-</neoan-accents>

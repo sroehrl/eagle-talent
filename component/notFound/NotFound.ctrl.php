@@ -6,8 +6,12 @@ namespace Neoan3\Components;
 use Neoan3\Core\Unicore;
 
 class NotFound extends Unicore {
+    /**
+     * Constructor
+     */
     function init(){
-        $this->uni('demo')->hook('main','notfound')->output();
+        $this->uni()->hook('main','notFound')->output();
     }
+
 
 }
