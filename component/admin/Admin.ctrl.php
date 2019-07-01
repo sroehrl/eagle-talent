@@ -9,10 +9,11 @@ use Neoan3\Core\Unicore;
 class Admin extends Unicore {
 
     function restrict(){
-        if(!Session::is_logged_in()) {
-            redirect('login');
-            exit();
-        }
+        // TODO: Add back in for login functionality.
+//        if(!Session::is_logged_in()) {
+//            redirect('login');
+//            exit();
+//        }
     }
     function init() {
 

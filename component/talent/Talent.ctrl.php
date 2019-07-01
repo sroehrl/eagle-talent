@@ -10,6 +10,7 @@ use Neoan3\Apps\Js;
 use SleekDB\SleekDB;
 
 class Talent extends Unicore {
+    private $components = ['navigation','talentcard'];
     private $genderOptions   = '';
     private $languageOptions = '';
 
@@ -18,19 +19,19 @@ class Talent extends Unicore {
     }
 
     function init() {
-        $this->uni('demo')
-             ->addHead('title', 'Talent Gallery')
-             ->callback($this, 'hideShow')
-            /* ->includeElement('services')
-             ->includeElement('neoan-accents')
-             ->includeElement('talent')*/
-             ->callback($this, 'navigation')
-             ->callback($this, 'chooseView')
-             ->hook(
-                 'header', 'header',
-                 ['genderOptions' => $this->genderOptions, 'languageOptions' => $this->languageOptions]
-             )//             ->hook('main', 'talent', ['language' => $_SESSION['language'], 'gender' => $_SESSION['gender']])
+        $this->uni('talent')
+            ->callback($this, 'load')
+            ->hook('main', 'talent')
              ->output();
+    }
+
+    /**
+     * @param \Neoan3\Frame\Talent $uni
+     */
+    function load($uni){
+        foreach ($this->components as $component){
+            $uni->vueComponent($component);
+        }
     }
 
     /**
