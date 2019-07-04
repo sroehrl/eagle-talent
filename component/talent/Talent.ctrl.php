@@ -10,7 +10,7 @@ use Neoan3\Apps\Js;
 use SleekDB\SleekDB;
 
 class Talent extends Unicore {
-    private $components = ['navigation','talentcard'];
+    private $components = ['navigation','talentCard','talentModal'];
     private $genderOptions   = '';
     private $languageOptions = '';
 

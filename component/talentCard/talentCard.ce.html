@@ -1,19 +1,27 @@
 <div class="card">
+    <talent-modal v-if="showModal" @close="toggleModal" v-bind:profile="profile"></talent-modal>
     <div class="card-image">
         <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+            <img v-bind:src="profile.picture" alt="Placeholder image">
         </figure>
     </div>
     <div class="card-content">
-        <p class="title">Lorem Ipsum</p>
-        <p class="subtitle">English</p>
+        <p class="title">{{ profile.name}}</p>
+        <p class="subtitle">{{ profile.language }}</p>
     </div>
     <footer class="card-footer">
-        <p class="card-footer-item">
-            <span>Video</span>
+        <p v-if="profile.type === 'video'" class="card-footer-item">
+            <button
+                    type="button"
+                    class="button is-warning modal-button"
+                    v-on:click="toggleModal">
+                <i class="fas fa-play"></i>
+                VIDEO
+            </button>
         </p>
-        <p class="card-footer-item">
+        <p v-if="profile.type === 'audio'" class="card-footer-item">
             <span>Audio</span>
         </p>
     </footer>
 </div>
+

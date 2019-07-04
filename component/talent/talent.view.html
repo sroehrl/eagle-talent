@@ -2,11 +2,11 @@
     <navigation></navigation>
     <section class="hero is-white is-fullheight">
         <div class="hero-body">
-            <section class="section">
-                <div class="container">
-                    <talentcard></talentcard>
+            <div v-for="item in galleryData" class="container">
+                <div>
+                    <talent-card v-if="item.language" v-bind:profile="item"></talent-card>
                 </div>
-            </section>
+            </div>
         </div>
     </section>
 </div>
